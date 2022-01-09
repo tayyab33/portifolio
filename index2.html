@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio-website</title>
+    <link rel="stylesheet" href="font-awesome/css/all.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+           html{
+               scroll-behavior: smooth;
+           }
+        .navbar {
+            position: fixed;
+            width: 100%;
+            /* background: crimson; */
+            font-family: sans-serif;
+            padding: 30px 0;
+            z-index: 999;
+
+        }
+
+        .navbar .logo a {
+            font-size: 35px;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .max-width {
+            padding: 0 80px;
+            margin: auto;
+            max-width: 1300px;
+        }
+
+        .navbar .menu li {
+            list-style: none;
+            display: inline-block;
+
+        }
+
+        .navbar .max-width {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar .menu li a {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .menu li a:hover {
+            color: crimson;
+        }
+
+        .navbar .menu li a {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            margin-left: 25px;
+        }
+
+        .sticky {
+            padding: 30px 0;
+            background-color: crimson;
+            transition: all 0.3s ease;
+        }
+
+        .sticky .logo a span {
+            color: #fff;
+        }
+
+        .sticky .menu li a:hover {
+            color: rgb(218, 218, 218);
+        }
+
+        .home {
+            display: flex;
+            height: 100vh;
+            color: white;
+            min-height: 500px;
+            background: url(man.jpg) no-repeat;
+            background-position-x: right;
+            background-attachment: fixed;
+            background-size: 50rem;
+            z-index: 1;
+
+
+
+
+        }
+
+        .home .max-width {
+            margin: auto 0 auto 40px;
+        }
+
+        .home .max-width .text-1 {
+            font-size: 27px;
+        }
+
+        .home .max-width .text-2 {
+            font-size: 75px;
+            font-weight: 600;
+            margin-left: -3px;
+        }
+
+        .home .home-content .text-3 {
+            font-size: 40px;
+            margin: 5px 0;
+        }
+
+        .home .home-content .text-3 span {
+            color: crimson;
+        }
+
+        .home .home-content a {
+            display: inline-block;
+            background: crimson;
+            color: #fff;
+            font-size: 25px;
+            padding: 12px 36px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border: 2px solid crimson;
+            transition: all 0.3 ease;
+        }
+
+        .home .home-content a:hover {
+            color: #fff;
+            background: none;
+        }
+
+
+        /* menu-btn-style */
+        .menu-btn {
+            color: white;
+            font-size: 21px;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* teams section start here */
+        .teams .title::after {
+            content: "who with me";
+            background: #111;
+        }
+
+        .teams .carousel .card {
+            background: #222;
+
+            padding: 25px 35px;
+        }
+
+        .teams .carousel .card .box {
+            background: #333;
+            text-align: center;
+            flex-direction: column;
+            transition: 0.5s ease;
+            border-radius: 6px;
+        }
+
+        .teams .carousel .card .box:hover {
+            transform: scale(1.05);
+        }
+
+        .teams .carousel .card .text {
+            font-size: 25px;
+            font-weight: 500;
+            margin: 10px 0 7px 0;
+        }
+
+        .teams .carousel .card .box:hover {
+            background: crimson;
+        }
+
+        .teams .carousel .card .box:hover img {
+            border-color: white;
+        }
+
+        .teams .carousel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .teams .carousel .card img {
+            transition: 0.5s ease;
+            height: 150px;
+            width: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid crimson;
+        }
+
+
+        /* media query here */
+        @media (max-width: 1300px) {
+            .home .max-width {
+                margin-left: 0px;
+            }
+
+            .teams .carousel {
+                flex: 100%;
+                display: block;
+                width: auto;
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 1104px) {
+            .about .about-content .left img {
+                height: 350px;
+                width: 350px;
+            }
+            .contact .contact-content .column,
+            .skills .skills-content .column {
+                flex: 100%;
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 947px) {
+            .max-width {
+                padding: 0 50px;
+            }
+        }
+
+        @media (max-width: 991px) {
+
+            .max-width {
+
+                padding: 0 50px;
+
+            }
+
+            .menu-btn i.active:before {
+                content: "\f00d";
+            }
+
+            .menu-btn {
+                display: block;
+                z-index: 990;
+            }
+
+            .navbar .menu {
+                position: fixed;
+                height: 100vh;
+                width: 100%;
+                left: -100%;
+                top: 0;
+                background: #111;
+                text-align: center;
+                padding: 80px;
+                transition: all 0.3s ease;
+            }
+
+            .navbar .menu.active {
+                left: 0;
+            }
+
+            .navbar .menu li {
+                display: block;
+            }
+
+            .navbar .menu li a {
+                display: inline-block;
+                margin: 20px 0;
+                font-size: 25px;
+            }
+
+            .home .max-width .text-2 {
+                font-size: 60px;
+            }
+
+            .home .home-content .text-3 {
+                font-size: 25px;
+
+            }
+
+            .max-width {
+
+                max-width: 800px;
+            }
+
+            .home .home-content a {
+                font-size: 23px;
+                padding: 10px 30px;
+            }
+
+            .about .about-content .column {
+                width: 50%;
+            }
+
+            .about .about-content .left {
+                display: flex;
+                justify-content: center;
+                margin: 0 auto 60px;
+            }
+
+            .about .about-content .right {
+                flex: 100%;
+
+            }
+
+            .services .serv-content .card {
+                flex: 100%;
+                margin: 1rem;
+            }
+        }
+
+        @media (max-width: 690px) {
+            .max-width {
+                padding: 5px 15px;
+            }
+
+            .home .max-width .text-2 {
+                font-size: 50px;
+            }
+
+            .home .home-content .text-3 {
+                font-size: 19px;
+
+            }
+
+            .home .home-content a {
+                font-size: 20px;
+                padding: 8px 20px;
+            }
+
+            .skills .skills-content .column {
+                flex: 100%;
+            }
+        }
+
+        .max-width span {
+            color: crimson;
+        }
+
+
+
+        /* about section start here */
+        section {
+            color: white;
+            padding: 100px 0;
+        }
+
+        .about,
+        .services,
+        .skills,
+        .teams,
+        .contact,
+        footer {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        section .title {
+            position: relative;
+            font-size: 40px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 60px;
+            font-family: sans-serif;
+            padding-bottom: 20px;
+        }
+
+        .about .about-content .left img {
+            height: 400px;
+            width: 400px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        section .title::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 3px;
+            background: #fff;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        section .title::after {
+            /* content: "who i am"; */
+            position: absolute;
+            padding: 5px;
+            bottom: -1px;
+            height: 3px;
+            color: crimson;
+            font-size: 20px;
+            background: black;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about .title::after {
+            content: "who i am";
+        }
+
+        .about .about-content,
+        .services .serv-content,
+        .skills
+        .skills-content,
+        .contact .contact-content{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .about .about-content .left {
+            width: 45%;
+        }
+
+        .about .about-content .right {
+            width: 55%;
+        }
+
+        .about .about-content .right .text {
+            font-size: 25px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .about .about-content .right p {
+            text-align: justify;
+        }
+
+        .about .about-content .right a {
+            display: inline-block;
+            background: crimson;
+            color: #fff;
+            padding: 15px 30px;
+            border: 2px solid crimson;
+            transition: all 0.3s ease;
+            border-radius: 0.7rem;
+            margin-top: 2rem;
+            font-size: 1.3rem;
+        }
+
+        .about .about-content .right a:hover {
+            color: white;
+            background: none;
+        }
+
+        /* contact section styling */
+
+        .contact .title::after {
+            content: "get in touch";
+        }
+        .contact .contact-content .column{
+            width: calc(50% - 30px);
+        }
+        .contact .contact-content .text{
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+        .contact .contact-content .left p{
+            text-align: justify;
+        }
+        .contact .contact-content .left .icons{
+            margin: 10px 0;   
+        }
+        .contact .contact-content .row{
+             display: flex;
+             height: 65px;
+             align-items: center;
+        }
+        .contact .contact-content .row .info{
+                 margin: 10px;
+        }
+        .contact .contact-content .row i{
+                 font-size: 25px;
+                 color: crimson;
+        }
+        .contact .contact-content .info .head{
+               font-weight: 500;
+        }
+        .contact .contact-content .info .sub-title{
+           color: #333;
+        }
+        .contact .right form .fields{
+               display: flex;
+        }
+        .contact .right form .field,
+        .contact .right form .fields .field{
+            height: 45px;
+            width: 100%;
+            margin-bottom: 15px;
+         
+        }
+        .contact .right form .name{
+            margin-right: 10px;
+        }
+        .contact .right form .email{
+            margin-left: 10px;
+        }
+        .contact .right form .textarea{
+            height: 80px;
+            width: 100%;
+        }
+        .contact .right form .button{
+            height: 47px;
+            width: 170px;
+        }
+        .contact .right form .button button{
+                width: 100%;
+                height: 100%;
+                border: 2px solid crimson;
+                background: crimson;
+                color: white;
+                font-size: 20px;
+                font-weight: 500;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: all 0.5s ease;
+        }
+        .contact .right form .button button:hover{
+            color: crimson;
+            background: none;
+        }
+        .contact .right form .field input,
+        .contact .right form .textarea textarea
+        {
+            height: 100%;
+            width: 100%;
+            border: 1px solid lightgrey;
+            border-radius: 6px;
+            outline: none;
+            padding: 0 15px;
+            font-size: 17px;
+            font-family: sans-serif;
+        }
+        
+        /* services section styling */
+        .services,
+        .teams {
+            background: #111;
+        }
+
+        .services .title::before,
+        .teams .title::before {
+            background: #fff;
+        }
+
+        .services .title::after,
+        .teams .title::after {
+            background: #111;
+            content: "what i provide";
+        }
+
+        .services .serv-content .card {
+            width: calc(33% - 20px);
+            background: #222;
+            text-align: center;
+            border-radius: 6px;
+            padding: 20px 25px;
+            cursor: pointer;
+        }
+
+        .services .serv-content .card .box {
+            transition: all 0.3s ease;
+        }
+
+        .services .serv-content .card:hover .box {
+            transform: scale(1.05);
+        }
+
+        .services .serv-content .card:hover span {
+            color: white;
+        }
+
+        .services .serv-content .card:hover {
+            background: crimson;
+        }
+
+        .services .serv-content .card i {
+            font-size: 50px;
+            margin: 1rem;
+        }
+
+        .services .serv-content .card .text {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 1rem;
+        }
+
+        /* skills code start here */
+        .skills .title::after {
+            content: "what i know";
+        }
+
+        .skills .skills-content .column {
+            width: calc(50% - 30px);
+        }
+
+        .skills .skills-content .left .text {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .skills .skills-content .right .bars {
+            margin-bottom: 15px;
+        }
+
+        .skills .skills-content .right .info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 20px;
+        }
+
+        .skills .skills-content .right .line {
+            height: 5px;
+            width: 100%;
+            background: lightgrey;
+            position: relative;
+        }
+
+        .skills .skills-content .right .line:before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: crimson;
+        }
+
+        .skills .skills-content a {
+            display: inline-block;
+            background: crimson;
+            color: #fff;
+            padding: 15px 30px;
+            border: 2px solid crimson;
+            transition: all 0.3s ease;
+            border-radius: 0.7rem;
+            margin-top: 2rem;
+            font-size: 1.3rem;
+        }
+
+        .skills .skills-content a:hover {
+            color: white;
+            background: none;
+        }
+
+        .skills-content .right .html::before {
+            width: 90%;
+        }
+
+        .skills-content .right .css::before {
+            width: 80%;
+        }
+
+        .skills-content .right .js::before {
+            width: 70%;
+        }
+
+        .skills-content .right .php::before {
+            width: 90%;
+        }
+
+
+        /* footer css code */
+             footer{
+                 background:#222;
+                 padding: 20px 23px;
+                 color: white;
+             }
+             footer span a{
+                 color: crimson;
+                 text-decoration: none;
+             }
+             footer span a:hover{
+                  text-decoration: underline;
+             }
+        /* footer css code end */
+        /* scroll btn */
+        .scroll-up-btn{
+            position: fixed;
+            height: 45px;
+            width: 42px;
+            background: crimson;
+            right: 30px;
+            bottom: 30px;
+            text-align: center;
+            line-height: 45px;
+            color: white;
+            z-index: 9999;
+            font-size: 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .scroll-up-btn.show{
+            bottom: 30px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+    <div class="scroll-up-btn">
+         <i class="fa fa-angle-up"></i>
+    </div>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">Portfo<span>lio.</span></a></div>
+            <ul class="menu">
+                <li><a href="#home" >Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contect</a></li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    <!-- home section here -->
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="text-1">Hello, my name is</div>
+                <div class="text-2">Tayyab Ali</div>
+                <div class="text-3">And i'm full stack <span>web-developer</span></div>
+                <a href="#">Hire me</a>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- about section start -->
+    <section class="about" id="about">
+        <div class="max-width">
+            <h1 class="title">About me</h1>
+            <div class="about-content">
+                <div class="column left">
+                    <img src="bacha.jpg" alt="">
+                </div>
+                <div class="column right">
+                    <div class="text">I'm tayyab ali. and my real name is tayyab <span>web developer </span></div>
+                    <p> I'm interprenur and i design beautiful website that's my work. Lorem ipsum dolor sit amet
+                        consectetur, adipisicing elit. In
+                        autem ipsam eaque sint ea consequuntur minus quidem hic! Accusantium reiciendis sint qui
+                        ducimus?</p>
+                    <a href="#">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- services section start -->
+
+    <section class="services" id="services">
+        <div class="max-width">
+            <h1 class="title">My services</h1>
+            <div class="serv-content">
+                <div class="card">
+                    <div class="box">
+                        <i class="fa fa-paint-brush"></i>
+                        <div class="text"> <span>Web Design</span> </div>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, quos ad alias amet nisi
+                            ducimus laborum fugiat, quam error, rerum deleniti veniam! Natus nesciunt ducimus quisquam
+                            obcaecati odio non quae amet eveniet voluptas temporibus placeat voluptatibus, consectetur
+                            similique blanditiis quis, a modi quod quos recusandae at mollitia, quasi nemo
+                            reprehenderit.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <i class="fa fa-chart-line"></i>
+                        <div class="text"> <span>Advertising</span> </div>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, quos ad alias amet nisi
+                            ducimus laborum fugiat, quam error, rerum deleniti veniam! Natus nesciunt ducimus quisquam
+                            obcaecati odio non quae amet eveniet voluptas temporibus placeat voluptatibus, consectetur
+                            similique blanditiis quis, a modi quod quos recusandae at mollitia, quasi nemo
+                            reprehenderit.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <i class="fa fa-code"></i>
+                        <div class="text"> <span>Apps Design</span> </div>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, quos ad alias amet nisi
+                            ducimus laborum fugiat, quam error, rerum deleniti veniam! Natus nesciunt ducimus quisquam
+                            obcaecati odio non quae amet eveniet voluptas temporibus placeat voluptatibus, consectetur
+                            similique blanditiis quis, a modi quod quos recusandae at mollitia, quasi nemo
+                            reprehenderit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- skills section start -->
+    <section class="skills" id="skills">
+        <div class="max-width">
+            <h2 class="title">My Skills</h2>
+            <div class="skills-content">
+                <div class="column left">
+                    <div class="text">My creative skills & experiences.</div>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed voluptate, cumque mollitia corrupti
+                        eaque laudantium consectetur debitis quasi minus voluptas doloribus animi perferendis!</p>
+                    <a href="">Read more</a>
+                </div>
+                <div class="column right">
+                    <div class="bars">
+                        <div class="info">
+                            <span>HTMl</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="line html"></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>HTMl</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="line css"></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>HTMl</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="line js"></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>HTMl</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="line php"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team section start -->
+    <section class="teams" id="teams">
+        <div class="max-width">
+            <h2 class="title">My teams</h2>
+            <div class="carousel">
+                <div class="card">
+                    <div class="box">
+                        <img src="bacha2.jpg" alt="">
+                        <div class="text">Someone name</div>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, vero recusandae
+                            voluptatibus
+                            ratione officia blanditiis saepe. Provident modi aliquid, aperiam animi ducimus dicta
+                            praesentium ipsa tempore eligendi! Dicta, debitis doloribus! Tempore vero ad ipsum!</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <img src="PicsArt_10-03-08.33.45-removebg-preview.png" alt="">
+                        <div class="text">Someone name</div>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, vero recusandae
+                            voluptatibus
+                            ratione officia blanditiis saepe. Provident modi aliquid, aperiam animi ducimus dicta
+                            praesentium ipsa tempore eligendi! Dicta, debitis doloribus! Tempore vero ad ipsum!</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <img src="IMG20200803115346.jpg" alt="">
+                        <div class="text">Someone name</div>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, vero recusandae
+                            voluptatibus
+                            ratione officia blanditiis saepe. Provident modi aliquid, aperiam animi ducimus dicta
+                            praesentium ipsa tempore eligendi! Dicta, debitis doloribus! Tempore vero ad ipsum!</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <img src="bacha2.jpg" alt="">
+                        <div class="text">Someone name</div>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, vero recusandae
+                            voluptatibus
+                            ratione officia blanditiis saepe. Provident modi aliquid, aperiam animi ducimus dicta
+                            praesentium ipsa tempore eligendi! Dicta, debitis doloribus! Tempore vero ad ipsum!</p>
+                            
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- contect section -->
+    <section class="contact" id="contact">
+        <div class="max-width">
+            <h2 class="title">Contect me</h2>
+            <div class="contact-content">
+            <div class="column left">
+                <div class="text">
+                    Get in touch
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident earum id fugiat quidem tempore
+                    quas nemo aliquam modi omnis iusto! Repellat dolores vel recusandae sint esse atque, explicabo
+                    repellendus possimus harum optio vero magnam.</p>
+                    <div class="icons">
+                        <div class="row">
+                            <i class="fa fa-user"></i>
+                            <div class="info">
+                                <div class="head">
+                                    Name
+                                </div>
+                                <div class="sub-title">
+                                    Tayyab ali
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <i class="fa fa-envelope"></i>
+                            <div class="info">
+                                <div class="head">
+                                    Email
+                                </div>
+                                <div class="sub-title">
+                                    tayyali780@gmail.com
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <i class="fa fa-map-marker-alt"></i>
+                            <div class="info">
+                                <div class="head">
+                                    address
+                                </div>
+                                <div class="sub-title">
+                                    Chakwal Bharpur
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+              
+            </div>
+            <div class="column right">
+                <div class="text">Message me</div>
+                <form action="#">
+                         <div class="fields">
+                              <div class="field name">
+                                  <input type="text" placeholder="Name">
+                              </div>
+                              <div class="field email">
+                                 <input type="text" placeholder="Email">
+                             </div>
+                          </div>
+                             <div class="field">
+                                 <input type="text" placeholder="Name">
+                             </div>
+                             <div class="field textarea">
+                               <textarea cols="30" rows="10" placeholder="Describe"></textarea>
+                             </div>
+                             <div class="button">
+                                <button type="submit">Send message</button>
+                             </div>
+                         </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- footer section start -->
+    <footer>
+        <span>Created By <a href="">CodingBharpur</a> | <span class="fa fa-copyright"></span>2021 All rights reserved.</span>
+    </footer>
+    <script src="jquery/dist/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if (this.scrollY > 20) {
+                    $('.navbar').addClass("sticky");
+                } else {
+                    $('.navbar').removeClass("sticky");
+                }
+                if(this.scrollY > 500){
+                    $('.scroll-up-btn').addClass("show");
+                }else{
+                    $('.scroll-up-btn').removeClass("show");
+                }
+            });
+            // slider up script
+            $('.scroll-up-btn').click(function(){
+                $('html').animate({scrollTop: 0});
+            });
+        });
+        // toggle menu/navbar
+        $('.menu-btn').click(function () {
+            $('.navbar .menu').toggleClass("active");
+            $('.menu-btn i').toggleClass("active");
+        })
+    </script>
+</body>
+
+</html>
